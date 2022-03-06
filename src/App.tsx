@@ -1,22 +1,41 @@
-import { MainLayout } from "Layouts/MainLayout/MainLayout";
-import { MainPage } from "Pages";
-import { ThemeProvider } from "Providers/theme";
-import { ThemeModeProvider } from "Providers/themeMode";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
+
+//constans
+import { paths } from "constans";
+
+//layouts
+import { MainLayout } from "Layouts";
+
+//pages
+import { MainPage, SearchPage } from "Pages";
+
+//Providers
+import {
+  ThemeProvider,
+  ThemeModeProvider,
+  NotificationProvider,
+  LayoutContextProvider,
+} from "Providers";
+import {} from "Providers/layout";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeModeProvider>
-        <ThemeProvider>
-          <MainLayout>
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-            </Routes>
-          </MainLayout>
-        </ThemeProvider>
-      </ThemeModeProvider>
-    </BrowserRouter>
+    <HashRouter>
+      <LayoutContextProvider>
+        <ThemeModeProvider>
+          <ThemeProvider>
+            <NotificationProvider>
+              <MainLayout>
+                <Routes>
+                  <Route path={paths.home} element={<MainPage />} />
+                  <Route path={paths.searchID} element={<SearchPage />} />
+                </Routes>
+              </MainLayout>
+            </NotificationProvider>
+          </ThemeProvider>
+        </ThemeModeProvider>
+      </LayoutContextProvider>
+    </HashRouter>
   );
 }
 

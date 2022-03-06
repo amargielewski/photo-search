@@ -1,4 +1,6 @@
 import { ReactChild } from "react";
+
+//theme
 import { ThemeType } from "theme";
 
 //styled
@@ -11,7 +13,7 @@ export type TypographyVariant =
   | "textMedium";
 
 export type TypographyProps = {
-  children: ReactChild;
+  children: ReactChild | ReactChild[];
   fontSize?: keyof ThemeType["fontSizes"];
   fontWeight?: keyof ThemeType["fontWeights"];
   color?: keyof ThemeType["colors"];

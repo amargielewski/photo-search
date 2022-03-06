@@ -1,9 +1,11 @@
-import { SearchIcon } from "icons/SearchIcon";
 import { InputHTMLAttributes } from "react";
+
+//icons
+import { SearchIcon } from "icons";
 
 //styled
 import {
-  StyledIconWrapper,
+  StyledSearchIconWrapper,
   StyledInput,
   StyledInputWrapper,
 } from "./Input.styled";
@@ -13,9 +15,9 @@ type InputProps = {} & InputHTMLAttributes<HTMLInputElement>;
 export const Input = ({ ...props }: InputProps) => {
   return (
     <StyledInputWrapper>
-      <StyledIconWrapper>
+      <StyledSearchIconWrapper>
         <SearchIcon />
-      </StyledIconWrapper>
+      </StyledSearchIconWrapper>
       <StyledInput {...props} />
     </StyledInputWrapper>
   );
